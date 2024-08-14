@@ -59,7 +59,7 @@ const Header = () => {
                                         onClick={toggleDropdown}
                                         className="flex items-center space-x-2 focus:outline-none"
                                     >
-                                        <span className="text-gray-800 font-medium">{user.username}</span>
+                                        <span className="text-gray-600 font-medium">{user.username}</span>
                                         <svg
                                             className="w-5 h-5"
                                             fill="none"
