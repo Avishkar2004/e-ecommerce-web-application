@@ -25,7 +25,7 @@ const Login = () => {
     setLoading(true);
     setError('');
     try {
-      await login(formData); // Perform login
+      await login(formData);
       alert('Login successful!');
       navigate('/'); // Redirect to home screen after successful login
     } catch (err) {
