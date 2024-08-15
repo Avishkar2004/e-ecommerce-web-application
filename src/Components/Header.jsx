@@ -199,6 +199,20 @@ const Header = () => {
                                     <span className="text-gray-800 font-medium">
                                         {user.username}
                                     </span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth={1.5}
+                                        stroke="currentColor"
+                                        className="w-4 h-4 text-gray-600 ml-1"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            d="M6 9l6 6 6-6"
+                                        />
+                                    </svg>
                                 </button>
                                 {dropdownOpen && (
                                     <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-10">
@@ -220,6 +234,7 @@ const Header = () => {
                                     </div>
                                 )}
                             </div>
+
                         ) : (
                             <Link
                                 to="/signup"
