@@ -3,13 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/authContext'; // Import AuthContext
 
 const Login = () => {
-    const navigate = useNavigate(); // Correctly using useNavigate
-    const { login } = useContext(AuthContext); // Get login function from AuthContext
+    const navigate = useNavigate();
+    const { login } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
         identifier: '',
         password: ''
     });
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleChange = (e) => {
         setFormData({
@@ -20,17 +22,21 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
+        setError('');
         try {
-            await login(formData); // Use login from context
+            await login(formData);
             alert('Login successful!');
             navigate('/'); // Redirect to home screen after login
         } catch (err) {
             console.error(err);
             if (err.response && err.response.data) {
-                alert(err.response.data.message);
+                setError(err.response.data.message);
             } else {
-                alert('Login failed. Please check your credentials and try again.');
+                setError('Login failed. Please check your credentials and try again.');
             }
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -38,6 +44,7 @@ const Login = () => {
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
                 <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Log In</h2>
+                {error && <p className="text-red-500 text-center mb-4">{error}</p>}
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <input
@@ -61,9 +68,10 @@ const Login = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full p-3 bg-blue-600 text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className={`w-full p-3 ${loading ? 'bg-blue-400' : 'bg-blue-600'} text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                        disabled={loading}
                     >
-                        Log In
+                        {loading ? 'Logging in...' : 'Log In'}
                     </button>
                 </form>
                 <p className="mt-6 text-center text-gray-600">
