@@ -79,7 +79,7 @@ const Header = () => {
                                 viewBox="0 0 24 24"
                                 strokeWidth={1.5}
                                 stroke="currentColor"
-                                className="w-6 h-6 cursor-pointer"
+                                className="w-6 h-6 cursor-pointer text-gray-600"
                             >
                                 <path
                                     strokeLinecap="round"
@@ -91,7 +91,7 @@ const Header = () => {
                                 <div className="absolute right-0 mt-2 w-56 bg-white border border-gray-200 shadow-lg rounded-lg z-10">
                                     <Link
                                         to="/option1"
-                                        className="flex items-center px-4 py-2 text-gray-800 hover:bg-gray-100"
+                                        className="flex items-center px-4 py-2 text-gray-600 hover:bg-gray-100"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -111,7 +111,7 @@ const Header = () => {
                                     </Link>
                                     <Link
                                         to="/option2"
-                                        className="flex items-center px-4 py-3 text-gray-800 hover:bg-gray-100 transition duration-200"
+                                        className="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 transition duration-200"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +131,7 @@ const Header = () => {
                                     </Link>
                                     <Link
                                         to="/option3"
-                                        className="flex items-center px-4 py-3 text-gray-800 hover:bg-gray-100 transition duration-200"
+                                        className="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-100 transition duration-200"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +188,7 @@ const Header = () => {
                                         viewBox="0 0 24 24"
                                         strokeWidth={1.5}
                                         stroke="currentColor"
-                                        className="w-6 h-6"
+                                        className="w-6 h-6 text-gray-600"
                                     >
                                         <path
                                             strokeLinecap="round"
@@ -196,7 +196,7 @@ const Header = () => {
                                             d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
                                         />
                                     </svg>
-                                    <span className="text-gray-800 font-medium">
+                                    <span className="text-gray-600 font-medium">
                                         {user.username}
                                     </span>
                                     <svg
@@ -218,16 +218,16 @@ const Header = () => {
                                     <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-10">
                                         <Link
                                             to="/profile"
-                                            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                                            className="block px-4 py-2 text-gray-600 hover:bg-gray-100"
                                         >
                                             Profile
                                         </Link>
-                                        <p className="block px-4 py-2 text-gray-800 hover:bg-gray-100">
+                                        <p className="block px-4 py-2 text-gray-600 hover:bg-gray-100">
                                             Phone: {user.phoneNumber}
                                         </p>
                                         <button
                                             onClick={logout}
-                                            className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100"
+                                            className="block w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-100"
                                         >
                                             Logout
                                         </button>

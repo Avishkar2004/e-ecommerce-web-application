@@ -25,12 +25,13 @@ export const AuthProvider = ({ children }) => {
         });
     }
   }, []);
-  
-  
 
   const signup = async (userData) => {
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/signup", userData);
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/signup",
+        userData
+      );
       Cookies.set("authToken", response.data.token);
       console.log("Token set:", Cookies.get("authToken")); // Log the token here
       setUser(response.data.user); // Update user after signup
@@ -38,7 +39,6 @@ export const AuthProvider = ({ children }) => {
       console.error("Signup error:", error.response?.data || error.message);
     }
   };
-  
 
   const login = async (credentials) => {
     try {
@@ -47,11 +47,13 @@ export const AuthProvider = ({ children }) => {
         credentials
       );
       Cookies.set("authToken", response.data.token);
-      setUser(response.data.user); // Update user after login
+      setUser(response.data.username); // Update user state after login
     } catch (error) {
-      console.error("Login error:", error.response?.data || error.message);
+      console.error("Login error:", error.response?.data?.message || error.message);
+      throw error; // Rethrow error to be caught in handleSubmit
     }
   };
+  
 
   const logout = () => {
     Cookies.remove("authToken");
