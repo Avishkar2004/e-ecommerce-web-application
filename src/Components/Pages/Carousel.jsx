@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import carousel1 from "../assets/photos/carousel1.png";
 import carousel2 from "../assets/photos/carousel2.png";
-// import carousel3 from "../assets/photos/carousel3.jpg";
 import carousel4 from "../assets/photos/carousel4.png";
 
 const images = [
   carousel1,
   carousel2,
-  // carousel3,
   carousel4
 ];
 
