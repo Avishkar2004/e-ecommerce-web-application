@@ -3,7 +3,6 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Header from '../Components/Header';
 import Signup from '../Components/Signup';
 import Login from '../Components/Login';
-// import Homepage from '../Components/Pages/Homepage';
 import Carousel from '../Components/Pages/Carousel';
 
 const AppRouter = () => {
