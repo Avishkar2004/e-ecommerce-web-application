@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const PostFlat = () => {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         size: '',
         rent: '',
@@ -11,7 +13,7 @@ const PostFlat = () => {
         location: '',
         contactNumber: '',
         email: '',
-nu:"",
+        nu: "",
         contactTime: '',
         landmark: '',
         numberOfPeople: '',
@@ -67,6 +69,7 @@ nu:"",
             const data = await response.json();
             if (response.ok) {
                 alert(data.message);
+                navigate('/'); // Redirect to home screen after successful login
             } else {
                 console.error(data.message);
             }
