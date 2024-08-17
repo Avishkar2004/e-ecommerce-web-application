@@ -40,21 +40,19 @@ const Room = () => {
                 {flats.map((flat) => (
                     <div key={flat.id} className="bg-white border border-gray-300 rounded-lg p-4 shadow-md">
                         {flat.photos && (
-                            <img 
-                                src={flat.photos} 
-                                alt={`Photo of ${flat.size}`} 
-                                className="w-full h-40 object-cover mb-4 rounded-lg" 
+                            <img
+                                src={flat.photos}
+                                alt={`Photo of ${flat.size}`}
+                                className="w-full h-40 object-cover mb-4 rounded-lg"
                             />
                         )}
+
                         <h2 className="text-xl font-semibold mb-2 text-gray-800">{flat.size}</h2>
                         <p className="text-gray-600">Rent: ${flat.rent}</p>
                         <p className="text-gray-600">Light Bill: ${flat.light_bill}</p>
                         <p className="text-gray-600">Deposits: ${flat.deposits}</p>
                         <p className="text-gray-600">Brokerage: ${flat.brokerage}</p>
-                        <p className="text-gray-600">Location: {flat.location}</p>
-                        <p className="text-gray-600">Contact Number: {flat.contact_number}</p>
-                        <p className="text-gray-600">Email: {flat.email}</p>
-                        <p className="text-gray-600">Contact Time: {flat.contact_time}</p>
+
                         <p className="text-gray-600">Landmark: {flat.landmark}</p>
                         <p className="text-gray-600">Number of People: {flat.number_of_people}</p>
                     </div>

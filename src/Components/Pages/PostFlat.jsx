@@ -13,7 +13,6 @@ const PostFlat = () => {
         location: '',
         contactNumber: '',
         email: '',
-        nu: "",
         contactTime: '',
         landmark: '',
         numberOfPeople: '',
