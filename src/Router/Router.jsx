@@ -5,6 +5,9 @@ import Signup from '../Components/Signup';
 import Login from '../Components/Login';
 import Carousel from '../Components/Pages/Carousel';
 import PostFlat from '../Components/Pages/PostFlat';
+import LookingFor from '../Components/Pages/LookingFor';
+import Reviews from '../Components/Pages/Reviews';
+import Room from '../Components/Pages/rooms/Room';
 
 const AppRouter = () => {
     return (
@@ -25,7 +28,18 @@ const ConditionalCarousel = () => {
     const location = useLocation();
 
     // Show Carousel only on the home route or other specific routes
-    return location.pathname === '/' ? <Carousel /> : null;
+    if (location.pathname === '/') {
+        return (
+            <>
+                <Carousel />
+                <LookingFor />
+                <Room />
+                <Reviews />
+            </>
+        );
+    }
+
+    return null;
 };
 
 export default AppRouter;
