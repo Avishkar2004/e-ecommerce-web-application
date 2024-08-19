@@ -46,14 +46,12 @@ const Room = () => {
                                 className="w-full h-40 object-cover mb-4 rounded-lg"
                             />
                         )}
-
                         <h2 className="text-xl font-semibold mb-2 text-gray-800">{flat.size}</h2>
-                        <p className="text-gray-600">Rent: ${flat.rent}</p>
-                        <p className="text-gray-600">Light Bill: ${flat.light_bill}</p>
-                        <p className="text-gray-600">Deposits: ${flat.deposits}</p>
-                        <p className="text-gray-600">Brokerage: ${flat.brokerage}</p>
-
-                        <p className="text-gray-600">Landmark: {flat.landmark}</p>
+                        <p className="text-gray-600">Rent: ₹ {flat.rent}</p>
+                        <p className="text-gray-600">Light Bill: ₹ {flat.light_bill}</p>
+                        <p className="text-gray-600">Deposits: ₹ {flat.deposits}</p>
+                        <p className="text-gray-600">Brokerage: ₹ {flat.brokerage}</p>
+                        {/* <p className="text-gray-600">Landmark: {flat.landmark}</p> */}
                         <p className="text-gray-600">Number of People: {flat.number_of_people}</p>
                     </div>
                 ))}
@@ -63,3 +61,9 @@ const Room = () => {
 };
 
 export default Room;
+
+
+
+
+
+

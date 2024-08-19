@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/authContext"; // Adjust the path
 
 const Header = () => {
+    const navigate = useNavigate()
     const { user, logout } = useContext(AuthContext);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [ellipsisDropdownOpen, setEllipsisDropdownOpen] = useState(false);
@@ -17,6 +18,14 @@ const Header = () => {
 
     const handleEllipsisLeave = () => {
         setEllipsisDropdownOpen(false);
+    };
+
+    const handlePostAboutRoomClick = () => {
+        if (user) {
+            navigate("/postaboutroom");
+        } else {
+            navigate("/signup");
+        }
     };
 
     return (
@@ -143,8 +152,8 @@ const Header = () => {
                     </nav>
 
                     <div className="flex items-center space-x-4">
-                        <Link
-                            to="/postaboutroom"
+                        <button
+                            onClick={handlePostAboutRoomClick}
                             className="text-gray-600 hover:text-gray-800 font-medium flex items-center"
                         >
                             <svg
@@ -162,7 +171,7 @@ const Header = () => {
                                 />
                             </svg>
                             Post About Room
-                        </Link>
+                        </button>
                         <Link
                             to="/cart"
                             className="text-gray-600 hover:text-gray-800 font-medium flex items-center"
