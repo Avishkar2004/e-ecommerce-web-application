@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import Header from '../Components/Header';
 import Signup from '../Components/Signup';
 import Login from '../Components/Login';
-import Carousel from '../Components/Pages/Carousel';
 import PostFlat from '../Components/Pages/PostFlat';
 import LookingFor from '../Components/Pages/LookingFor';
 import Reviews from '../Components/Pages/Reviews';
 import Room from '../Components/Pages/rooms/Room';
+import PropertySearch from '../Components/Pages/PropertySearch ';
 
 const AppRouter = () => {
     return (
@@ -31,10 +31,10 @@ const ConditionalCarousel = () => {
     if (location.pathname === '/') {
         return (
             <>
-                <Carousel />
-                <LookingFor />
-                <Room />
-                <Reviews />
+                <PropertySearch />
+                {/* <LookingFor /> */}
+                {/* <Room /> */}
+                {/* <Reviews /> */}
             </>
         );
     }
