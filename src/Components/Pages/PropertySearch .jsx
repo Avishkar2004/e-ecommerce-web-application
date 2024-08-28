@@ -22,13 +22,13 @@ const PropertySearch = () => {
     switch (value) {
       case 0: // Buy
         return (
-          <div className="flex space-x-4 bg-yellow-100 p-4 rounded-lg">
-            <button className="flex items-center text-gray-800">
-              <HomeIcon className="w-5 h-5 mr-2" />
+          <div className="flex space-x-2 bg-yellow-200 p-2 rounded shadow">
+            <button className="flex items-center text-gray-800 hover:text-blue-500">
+              <HomeIcon className="w-4 h-4 mr-1" />
               Home Interiors
             </button>
-            <button className="flex items-center text-gray-800">
-              <LocalShippingIcon className="w-5 h-5 mr-2" />
+            <button className="flex items-center text-gray-800 hover:text-blue-500">
+              <LocalShippingIcon className="w-4 h-4 mr-1" />
               45-Days Guarantee
             </button>
           </div>
@@ -36,13 +36,13 @@ const PropertySearch = () => {
       case 1: // Rent
       case 2: // Commercial
         return (
-          <div className="flex space-x-4 bg-yellow-100 p-4 rounded-lg">
-            <button className="flex items-center text-gray-800">
-              <DescriptionIcon className="w-5 h-5 mr-2" />
+          <div className="flex space-x-2 bg-yellow-200 p-2 rounded shadow">
+            <button className="flex items-center text-gray-800 hover:text-blue-500">
+              <DescriptionIcon className="w-4 h-4 mr-1" />
               Rental Agreement
             </button>
-            <button className="flex items-center text-gray-800">
-              <DeliveryDiningIcon className="w-5 h-5 mr-2" />
+            <button className="flex items-center text-gray-800 hover:text-blue-500">
+              <DeliveryDiningIcon className="w-4 h-4 mr-1" />
               Next Day Delivery
             </button>
           </div>
@@ -53,34 +53,34 @@ const PropertySearch = () => {
   };
 
   return (
-    <div className="container max-w-7xl mx-auto mt-5">
+    <div className="container max-w-3xl mx-auto mt-4 px-2">
       {/* Header Content */}
-      <h1 className="text-2xl font-bold text-center mb-3">
+      <h1 className="text-[32px] text-center font-[400] pt-[40px] text-[#787676] mb-[15px]">
         World's Largest NoBrokerage Property Site
       </h1>
 
       {/* Conditionally Rendered Buttons */}
-      <div className="flex justify-center mb-5">
+      <div className="flex justify-center mb-4">
         {renderButtons()}
       </div>
 
       {/* Tabs for Property Options */}
-      <div className="text-center mb-5">
-        <div className="flex justify-center space-x-4">
+      <div className="text-center mb-4">
+        <div className="flex justify-center space-x-2">
           <button
-            className={`px-4 py-2 rounded-lg ${value === 0 ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`px-4 py-2 rounded font-medium ${value === 0 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
             onClick={() => handleChange(0)}
           >
             Buy
           </button>
           <button
-            className={`px-4 py-2 rounded-lg ${value === 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`px-4 py-2 rounded font-medium ${value === 1 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
             onClick={() => handleChange(1)}
           >
             Rent
           </button>
           <button
-            className={`px-4 py-2 rounded-lg ${value === 2 ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`px-4 py-2 rounded font-medium ${value === 2 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
             onClick={() => handleChange(2)}
           >
             Commercial
@@ -89,10 +89,10 @@ const PropertySearch = () => {
       </div>
 
       {/* Search and Filter Options */}
-      <div className="bg-white shadow-md rounded-lg p-5">
-        <div className="flex space-x-4 mb-4">
+      <div className="bg-white shadow rounded p-4 mb-4">
+        <div className="flex space-x-2 mb-4">
           <select
-            className="w-40 p-2 border border-gray-300 rounded-lg"
+            className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             defaultValue="Bangalore"
           >
             <option value="Bangalore">Bangalore</option>
@@ -102,13 +102,13 @@ const PropertySearch = () => {
           <div className="flex-grow relative">
             <input
               type="text"
-              placeholder="Search up to 3 localities or landmarks"
-              className="w-full p-2 pl-10 border border-gray-300 rounded-lg"
+              placeholder="Search up to 3 localities"
+              className="w-full p-2 pl-8 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
-            <RoomIcon className="w-5 h-5 absolute top-1/2 left-3 transform -translate-y-1/2" />
+            <RoomIcon className="w-4 h-4 absolute top-1/2 left-2 transform -translate-y-1/2 text-gray-400" />
           </div>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center">
-            <SearchIcon className="w-5 h-5 mr-2" />
+          <button className="bg-blue-600 text-white px-4 py-2 rounded flex items-center hover:bg-blue-700">
+            <SearchIcon className="w-4 h-4 mr-1" />
             Search
           </button>
         </div>
@@ -116,80 +116,68 @@ const PropertySearch = () => {
         <div className="flex flex-wrap gap-2 mb-4">
           <button
             onClick={() => handlePropertyTypeChange('Full House')}
-            className={`px-4 py-2 rounded-lg ${propertyType === 'Full House' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`px-3 py-1 rounded font-medium ${propertyType === 'Full House' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
           >
             Full House
           </button>
           <button
             onClick={() => handlePropertyTypeChange('PG/Hostel')}
-            className={`px-4 py-2 rounded-lg ${propertyType === 'PG/Hostel' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`px-3 py-1 rounded font-medium ${propertyType === 'PG/Hostel' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
           >
             PG/Hostel
           </button>
           <button
             onClick={() => handlePropertyTypeChange('Flatmates')}
-            className={`px-4 py-2 rounded-lg ${propertyType === 'Flatmates' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`px-3 py-1 rounded font-medium ${propertyType === 'Flatmates' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
           >
             Flatmates
           </button>
+          {/* Conditional Rendering for Property Type */}
+          {propertyType === 'PG/Hostel' ? (
+            <div className="flex space-x-2">
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+                <option value="">Tenant Type</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Anyone">Anyone</option>
+              </select>
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+                <option value="">Room Type</option>
+                <option value="Single">Single Room</option>
+                <option value="Double">Double Sharing</option>
+                <option value="Triple">Triple Sharing</option>
+                <option value="Four">Four Sharing</option>
+              </select>
+            </div>
+          ) : propertyType === 'Flatmates' ? (
+            <div className="flex space-x-2">
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+                <option value="">Tenant Type</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+                <option value="">Room Type</option>
+                <option value="Single Room">Single Room</option>
+                <option value="Shared Room">Shared Room</option>
+              </select>
+            </div>
+          ) : (
+            <div className="flex space-x-2">
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+                <option value="">BHK Type</option>
+                <option value="1 BHK">1 BHK</option>
+                <option value="2 BHK">2 BHK</option>
+                <option value="3 BHK">3 BHK</option>
+              </select>
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+                <option value="">Availability</option>
+                <option value="Immediate">Immediate</option>
+                <option value="Within a Month">Within a Month</option>
+              </select>
+            </div>
+          )}
         </div>
-
-        {/* Conditional Rendering for Property Type */}
-        {propertyType === 'PG/Hostel' ? (
-          <div className="flex space-x-4 mb-4">
-            <select className="w-40 p-2 border border-gray-300 rounded-lg" defaultValue="">
-              <option value="">Tenant Type</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Anyone">Anyone</option>
-            </select>
-            <select className="w-40 p-2 border border-gray-300 rounded-lg" defaultValue="">
-              <option value="">Room Type</option>
-              <option value="Single">Single Room</option>
-              <option value="Double">Double Sharing</option>
-              <option value="Triple">Triple Sharing</option>
-              <option value="Four">Four Sharing</option>
-            </select>
-          </div>
-        ) : propertyType === 'Flatmates' ? (
-          <div className="flex space-x-4 mb-4">
-            <select className="w-40 p-2 border border-gray-300 rounded-lg" defaultValue="">
-              <option value="">Tenant Type</option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
-            <select className="w-40 p-2 border border-gray-300 rounded-lg" defaultValue="">
-              <option value="">Room Type</option>
-              <option value="Single Room">Single Room</option>
-              <option value="Shared Room">Shared Room</option>
-            </select>
-          </div>
-        ) : (
-          <div className="flex space-x-4 mb-4">
-            <select className="w-40 p-2 border border-gray-300 rounded-lg" defaultValue="">
-              <option value="">BHK Type</option>
-              <option value="1 BHK">1 BHK</option>
-              <option value="2 BHK">2 BHK</option>
-              <option value="3 BHK">3 BHK</option>
-            </select>
-            <select className="w-40 p-2 border border-gray-300 rounded-lg" defaultValue="">
-              <option value="">Availability</option>
-              <option value="Immediate">Immediate</option>
-              <option value="Within a Month">Within a Month</option>
-            </select>
-          </div>
-        )}
-      </div>
-
-      {/* Are You a Property Owner? Section */}
-      <div className="text-center mt-5">
-        <h2 className="text-xl font-semibold mb-2">
-          Are you a Property Owner?
-        </h2>
-        <button className="bg-blue-500 text-white px-6 py-2 rounded-lg flex items-center mx-auto">
-          <AddHomeWorkIcon className="w-5 h-5 mr-2" />
-          Post Free Property
-        </button>
       </div>
     </div>
   );
