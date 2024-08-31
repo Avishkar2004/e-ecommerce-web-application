@@ -22,7 +22,7 @@ const PropertySearch = () => {
     switch (value) {
       case 0: // Buy
         return (
-          <div className="flex space-x-2 bg-yellow-200 p-2 rounded shadow">
+          <div className="flex space-x-2 bg-[#fef0da] p-2 rounded shadow">
             <button className="flex items-center text-gray-800 hover:text-blue-500">
               <HomeIcon className="w-4 h-4 mr-1" />
               Home Interiors
@@ -36,7 +36,7 @@ const PropertySearch = () => {
       case 1: // Rent
       case 2: // Commercial
         return (
-          <div className="flex space-x-2 bg-yellow-200 p-2 rounded shadow">
+          <div className="flex space-x-2 bg-[#fef0da] p-2 rounded shadow">
             <button className="flex items-center text-gray-800 hover:text-blue-500">
               <DescriptionIcon className="w-4 h-4 mr-1" />
               Rental Agreement
