@@ -63,6 +63,24 @@ const WhyUse = () => {
                     <div className="absolute left-0 top-[-6px] bg-white rounded-full w-4 h-4 border border-pink-300"></div>
                 </div>
             </div>
+            <div className="py-8 ">
+                <div className="max-w-screen-xl mx-auto px-4 flex justify-between items-center">
+                    {[
+                        { icon: <ApartmentIcon fontSize="inherit" />, title: 'Avoid Broker', text: "We directly connect you to verified owners to save brokerage" },
+                        { icon: <AttachMoneyIcon fontSize="inherit" />, title: 'Sale Agreement', text: "We directly connect you to verified owners to save brokerage" },
+                        { icon: <VolunteerActivismIcon fontSize="inherit" />, title: 'Home Loan', text: "We directly connect you to verified owners to save brokerage" },
+                        { icon: <HomeRepairServiceIcon fontSize="inherit" />, title: 'Property Legal Services', text: "We directly connect you to verified owners to save brokerage" },
+                    ].map((item, index) => (
+                        <div key={index} className="flex flex-col items-center text-center w-full max-w-[calc(20%)] mx-2">
+                            <div className="text-blue-600 mb-4 text-4xl">
+                                {item.icon}
+                            </div>
+                            <h3 className="text-md font-medium  text-gray-800 mb-2">{item.title}</h3>
+                            <p className="text-sm">{item.text}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 };
