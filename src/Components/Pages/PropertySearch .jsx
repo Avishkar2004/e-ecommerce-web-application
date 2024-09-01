@@ -107,7 +107,7 @@ const PropertySearch = () => {
             />
             <RoomIcon className="w-4 h-4 absolute top-1/2 left-2 transform -translate-y-1/2 text-gray-400" />
           </div>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded flex items-center hover:bg-blue-700">
+          <button className="bg-[#e3324a] text-white px-4 py-2 rounded flex items-center hover:bg-blue-700">
             <SearchIcon className="w-4 h-4 mr-1" />
             Search
           </button>

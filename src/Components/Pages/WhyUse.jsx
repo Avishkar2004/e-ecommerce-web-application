@@ -20,9 +20,9 @@ const WhyUse = () => {
                     Check Eligibility
                 </button>
             </div>
+
             {/* Why Use Section */}
             <div className="py-8">
-
                 <div className="flex justify-around flex-wrap">
                     {[
                         { label: 'New', icon: <ApartmentIcon fontSize="small" />, text: 'Builder Projects' },
@@ -33,19 +33,35 @@ const WhyUse = () => {
                         { label: '', icon: <PublicIcon fontSize="small" />, text: 'NoBroker For NRIs' }
                     ].map((item, index) => (
                         <div key={index} className="text-center p-4 cursor-pointer">
-                            {item.label && (
-                                <span className="mb-2 inline-block py-1 px-3 rounded">
-                                    {item.label}
-                                </span>
+                            {item.label ? (
+                                <div className="flex items-center justify-center mb-2">
+                                    <span className="inline-block py-1 px-3 rounded bg-[#ffefd9] text-gray-700 font-semibold text-sm mr-2">
+                                        {item.label}
+                                    </span>
+                                    <div className="text-4xl text-blue-500">{item.icon}</div>
+                                </div>
+                            ) : (
+                                <div className="text-4xl mb-2 text-blue-500">{item.icon}</div>
                             )}
-                            <div className="text-4xl mb-2">{item.icon}</div>
                             <p className="mt-2 text-gray-700 font-medium">{item.text}</p>
                         </div>
                     ))}
                 </div>
             </div>
-            <div className="flex justify-center mb-6">
-                <h2 className="text-2xl text-gray-800 font-semibold">Why Use NoBroker</h2>
+            {/* Title with Horizontal Borders and Circles */}
+            <div className="flex items-center justify-center mb-6">
+                {/* Left Line */}
+                <div className="flex-grow border-t border-gray-300 relative">
+                    <div className="absolute right-0 top-[-6px] bg-white rounded-full w-4 h-4 border border-pink-300"></div>
+                </div>
+
+                {/* Title */}
+                <h2 className="text-2xl text-gray-800 font-semibold mx-4">Why Use NoBroker</h2>
+
+                {/* Right Line */}
+                <div className="flex-grow border-t border-gray-300 relative">
+                    <div className="absolute left-0 top-[-6px] bg-white rounded-full w-4 h-4 border border-pink-300"></div>
+                </div>
             </div>
         </div>
     );
