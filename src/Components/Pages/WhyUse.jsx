@@ -56,7 +56,7 @@ const WhyUse = () => {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-2xl text-gray-800 font-semibold mx-4">Why Use NoBroker</h2>
+                <h2 className="text-[32px] text-[#787676] font-[32px] mx-4">Why Use NoBroker</h2>
 
                 {/* Right Line */}
                 <div className="flex-grow border-t border-gray-300 relative">
