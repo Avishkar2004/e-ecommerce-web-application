@@ -38,10 +38,10 @@ const WhyUse = () => {
                                     <span className="inline-block py-1 px-3 rounded bg-[#ffefd9] text-gray-700 font-semibold text-sm mr-2">
                                         {item.label}
                                     </span>
-                                    <div className="text-4xl text-blue-500">{item.icon}</div>
+                                    <div className="text-4xl text-[#f73a50]">{item.icon}</div>
                                 </div>
                             ) : (
-                                <div className="text-4xl mb-2 text-blue-500">{item.icon}</div>
+                                <div className="text-4xl mb-2 text-[#f73a50]">{item.icon}</div>
                             )}
                             <p className="mt-2 text-gray-700 font-medium">{item.text}</p>
                         </div>
@@ -72,7 +72,7 @@ const WhyUse = () => {
                         { icon: <HomeRepairServiceIcon fontSize="inherit" />, title: 'Property Legal Services', text: "We directly connect you to verified owners to save brokerage" },
                     ].map((item, index) => (
                         <div key={index} className="flex flex-col items-center text-center w-full max-w-[calc(20%)] mx-2">
-                            <div className="text-blue-600 mb-4 text-4xl">
+                            <div className="text-[#f73a50] mb-4 text-4xl">
                                 {item.icon}
                             </div>
                             <h3 className="text-md font-medium  text-gray-800 mb-2">{item.title}</h3>

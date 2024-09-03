@@ -10,6 +10,8 @@ import PostFlat from '../Components/Pages/PostFlat';
 import PropertySearch from '../Components/Pages/PropertySearch ';
 import WhyUse from '../Components/Pages/WhyUse';
 import Business from '../Components/Pages/Business ';
+import Testimonials from '../Components/Pages/Testimonials';
+import FindANewHome from '../Components/Pages/FindANewHome';
 
 const AppRouter = () => {
     return (
@@ -36,6 +38,8 @@ const ConditionalCarousel = () => {
                 <PropertySearch />
                 <WhyUse />
                 <Business />
+                <Testimonials />
+                <FindANewHome />
                 {/* <LookingFor /> */}
                 {/* <Room /> */}
                 {/* <Reviews /> */}
