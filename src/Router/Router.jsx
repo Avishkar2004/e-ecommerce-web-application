@@ -14,6 +14,7 @@ import Testimonials from '../Components/Pages/Testimonials';
 import FindANewHome from '../Components/Pages/FindANewHome';
 import Available from '../Components/Pages/Available';
 import Services from '../Components/Pages/Services';
+import Footer from '../Components/Pages/Footer';
 
 const AppRouter = () => {
     return (
@@ -44,6 +45,7 @@ const ConditionalCarousel = () => {
                 <FindANewHome />
                 <Available />
                 <Services />
+                <Footer />
                 {/* <LookingFor /> */}
                 {/* <Room /> */}
                 {/* <Reviews /> */}
