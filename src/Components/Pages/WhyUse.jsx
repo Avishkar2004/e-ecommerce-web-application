@@ -11,7 +11,7 @@ const WhyUse = () => {
     return (
         <div>
             {/* Loan Banner */}
-            <div className="bg-blue-900 py-2 px-4 flex items-center justify-center">
+        <div className="bg-[#384d6c] py-2 px-4 flex items-center justify-center">
                 <EmojiPeopleIcon style={{ color: 'white', marginRight: '8px' }} />
                 <p className="text-white text-sm">
                     Do you know how much <strong>loan</strong> you can get? Get maximum with <strong>NoBroker</strong>

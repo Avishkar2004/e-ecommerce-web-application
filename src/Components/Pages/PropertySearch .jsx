@@ -65,28 +65,30 @@ const PropertySearch = () => {
       </div>
 
       {/* Tabs for Property Options */}
-      <div className="text-center mb-4">
-        <div className="flex justify-center space-x-2">
+      <div className="text-center">
+        <div className="flex justify-center">
           <button
-            className={`px-4 py-2 rounded font-medium ${value === 0 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
+            className={`px-4 py-2 rounded font-medium ${value === 0 ? 'text-red-600 border-b-4 border-[#fd3752]' : 'text-gray-700'}`}
             onClick={() => handleChange(0)}
           >
             Buy
           </button>
           <button
-            className={`px-4 py-2 rounded font-medium ${value === 1 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
+            className={`px-4 py-2 rounded font-medium ${value === 1 ? 'text-red-600 border-b-4 border-[#fd3752]' : 'text-gray-700 '}`}
             onClick={() => handleChange(1)}
           >
             Rent
           </button>
           <button
-            className={`px-4 py-2 rounded font-medium ${value === 2 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
+            className={`px-4 py-2 rounded font-medium ${value === 2 ? 'text-red-600 border-b-4 border-[#fd3752]' : 'text-gray-700 '}`}
             onClick={() => handleChange(2)}
           >
             Commercial
           </button>
         </div>
       </div>
+
+
 
       {/* Search and Filter Options */}
       <div className="bg-white shadow rounded p-4 mb-4">
@@ -185,7 +187,7 @@ const PropertySearch = () => {
           <span class="text-gray-600 text-lg font-medium">Are you a Property Owner?</span>
           <hr class="w-16 border-gray-300" />
         </div>
-        <button class="px-6 py-2 bg-teal-500 text-white font-semibold rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-400">
+        <button class="px-6 py-2 bg-[#009587] text-white font-semibold rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-400">
           Post Free Property Ad
         </button>
       </div>
