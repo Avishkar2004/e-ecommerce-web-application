@@ -24,7 +24,7 @@ const Signup = () => {
             const res = await axios.post('http://localhost:5000/api/auth/signup', formData);
             alert(res.data.message);
             localStorage.setItem('token', res.data.token);
-            navigate("/"); // Redirect to home screen after login
+            window.location.reload(navigate('/')) //! it might not work sometime bcoz it is not a good practice
         } catch (err) {
             console.error(err.response.data.message);
         }
@@ -33,7 +33,7 @@ const Signup = () => {
     return (
         <div className="flex items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url(https://source.unsplash.com/featured/?nature,water)' }}>
             <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md">
-                <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Create an Account</h2>
+                <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Create an</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <input

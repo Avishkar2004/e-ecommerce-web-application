@@ -27,8 +27,8 @@ const Login = () => {
     try {
       await login(formData);
       alert('Login successful!');
-      navigate('/'); // Redirect to home screen after successful login
-    } catch (err) {
+      window.location.reload(navigate('/')) //! this will not work as expected sometimes bcoz this is not a good practice
+    } catch (err) { 
       console.error(err);
       if (err.response && err.response.data) {
         const errorMessage = err.response.data.message;

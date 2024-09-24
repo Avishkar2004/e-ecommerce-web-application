@@ -118,19 +118,19 @@ const PropertySearch = () => {
         <div className="flex flex-wrap gap-2 mb-4">
           <button
             onClick={() => handlePropertyTypeChange('Full House')}
-            className={`px-3 py-1 rounded font-medium ${propertyType === 'Full House' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
+            className={`px-3 py-1 rounded font-medium ${propertyType === 'Full House' ? 'text-red-600 border-b-4 border-[#fd3752]' : 'text-gray-700'}`}
           >
             Full House
           </button>
           <button
             onClick={() => handlePropertyTypeChange('PG/Hostel')}
-            className={`px-3 py-1 rounded font-medium ${propertyType === 'PG/Hostel' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
+            className={`px-3 py-1 rounded font-medium ${propertyType === 'PG/Hostel' ? 'text-red-600 border-b-4 border-[#fd3752]' : 'text-gray-700'}`}
           >
             PG/Hostel
           </button>
           <button
             onClick={() => handlePropertyTypeChange('Flatmates')}
-            className={`px-3 py-1 rounded font-medium ${propertyType === 'Flatmates' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white'}`}
+            className={`px-3 py-1 rounded font-medium ${propertyType === 'Flatmates' ? 'text-red-600 border-b-4 border-[#fd3752]' : 'text-gray-700'}`}
           >
             Flatmates
           </button>
