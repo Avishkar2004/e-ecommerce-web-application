@@ -6,7 +6,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 
 const PropertySearch = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
   const [propertyType, setPropertyType] = useState('Full House');
 
   const handleChange = (newValue) => {
@@ -91,7 +91,7 @@ const PropertySearch = () => {
 
 
       {/* Search and Filter Options */}
-      <div className="bg-white shadow rounded p-4 mb-4">
+      <div className="bg-white shadow rounded p-5 mb-4">
         <div className="flex space-x-2 mb-4">
           <select
             className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
@@ -115,35 +115,56 @@ const PropertySearch = () => {
           </button>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-4">
-          <button
-            onClick={() => handlePropertyTypeChange('Full House')}
-            className={`px-3 py-1 rounded font-medium ${propertyType === 'Full House' ? 'text-red-600 border-b-4 border-[#fd3752]' : 'text-gray-700'}`}
-          >
-            Full House
-          </button>
-          <button
-            onClick={() => handlePropertyTypeChange('PG/Hostel')}
-            className={`px-3 py-1 rounded font-medium ${propertyType === 'PG/Hostel' ? 'text-red-600 border-b-4 border-[#fd3752]' : 'text-gray-700'}`}
-          >
-            PG/Hostel
-          </button>
-          <button
-            onClick={() => handlePropertyTypeChange('Flatmates')}
-            className={`px-3 py-1 rounded font-medium ${propertyType === 'Flatmates' ? 'text-red-600 border-b-4 border-[#fd3752]' : 'text-gray-700'}`}
-          >
-            Flatmates
-          </button>
-          {/* Conditional Rendering for Property Type */}
+
+        <div className="flex flex-wrap gap-2 mb-2">
+          {/* Radio buttons for property type */}
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="propertyType"
+              value="Full House"
+              checked={propertyType === 'Full House'}
+              onChange={() => handlePropertyTypeChange('Full House')}
+              className="form-radio text-[#009587] focus:ring-0"
+            />
+            <span className="text-gray-700 font-medium">Full House</span>
+          </label>
+
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="propertyType"
+              value="PG/Hostel"
+              checked={propertyType === 'PG/Hostel'}
+              onChange={() => handlePropertyTypeChange('PG/Hostel')}
+              className="form-radio text-[#009587] focus:ring-0"
+            />
+            <span className="text-gray-700 font-medium">PG/Hostel</span>
+          </label>
+
+          <label className="flex items-center gap-2">
+            <input
+              type="radio"
+              name="propertyType"
+              value="Flatmates"
+              checked={propertyType === 'Flatmates'}
+              onChange={() => handlePropertyTypeChange('Flatmates')}
+              className="form-radio text-[#009587] focus:ring-0"
+            />
+            <span className="text-gray-700 font-medium">Flatmates</span>
+          </label>
+
+          {/* Conditional rendering for Property Type */}
           {propertyType === 'PG/Hostel' ? (
             <div className="flex space-x-2">
-              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-[#009587] focus:outline-none" defaultValue=""
+              >
                 <option value="">Tenant Type</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Anyone">Anyone</option>
               </select>
-              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-[#009587] focus:outline-none" defaultValue="">
                 <option value="">Room Type</option>
                 <option value="Single">Single Room</option>
                 <option value="Double">Double Sharing</option>
@@ -153,12 +174,12 @@ const PropertySearch = () => {
             </div>
           ) : propertyType === 'Flatmates' ? (
             <div className="flex space-x-2">
-              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-[#009587] focus:outline-none" defaultValue="">
                 <option value="">Tenant Type</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
-              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-[#009587] focus:outline-none" defaultValue="">
                 <option value="">Room Type</option>
                 <option value="Single Room">Single Room</option>
                 <option value="Shared Room">Shared Room</option>
@@ -166,13 +187,13 @@ const PropertySearch = () => {
             </div>
           ) : (
             <div className="flex space-x-2">
-              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-[#009587] focus:outline-none" defaultValue="">
                 <option value="">BHK Type</option>
                 <option value="1 BHK">1 BHK</option>
                 <option value="2 BHK">2 BHK</option>
                 <option value="3 BHK">3 BHK</option>
               </select>
-              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none" defaultValue="">
+              <select className="w-32 p-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-[#009587] focus:outline-none" defaultValue="">
                 <option value="">Availability</option>
                 <option value="Immediate">Immediate</option>
                 <option value="Within a Month">Within a Month</option>
@@ -180,6 +201,8 @@ const PropertySearch = () => {
             </div>
           )}
         </div>
+
+
       </div>
       <div class="flex flex-col items-center justify-center space-y-4 p-4">
         <div class="flex items-center space-x-4">
