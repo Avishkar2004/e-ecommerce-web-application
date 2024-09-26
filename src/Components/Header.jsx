@@ -196,70 +196,58 @@ const Header = () => {
                             <div className="relative">
                                 <button
                                     onClick={toggleDropdown}
-                                    className="flex items-center space-x-2 focus:outline-none"
+                                    className="flex items-center space-x-2 text-gray-600 hover:text-gray-800"
                                 >
+                                    <span>{user.username}</span>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         strokeWidth={1.5}
                                         stroke="currentColor"
-                                        className="w-6 h-6 text-gray-600"
+                                        className="w-6 h-6"
                                     >
                                         <path
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                                        />
-                                    </svg>
-                                    <span className="text-gray-600 font-medium">
-                                        {user.username}
-                                    </span>
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        strokeWidth={1.5}
-                                        stroke="currentColor"
-                                        className="w-4 h-4 text-gray-600 ml-1"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            d="M6 9l6 6 6-6"
+                                            d="M19.5 9l-7.5 7.5L4.5 9"
                                         />
                                     </svg>
                                 </button>
                                 {dropdownOpen && (
-                                    <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-10">
+                                    <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg z-10">
                                         <Link
                                             to="/profile"
                                             className="block px-4 py-2 text-gray-600 hover:bg-gray-100"
                                         >
                                             Profile
                                         </Link>
-                                        <p className="block px-4 py-2 text-gray-600 hover:bg-gray-100">
-                                            Phone: {user.phoneNumber}
-                                        </p>
                                         <button
                                             onClick={logout}
-                                            className="block w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-100"
+                                            className="w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-100"
                                         >
                                             Logout
                                         </button>
                                     </div>
                                 )}
                             </div>
-
                         ) : (
-                            <Link
-                                to="/signup"
-                                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
-                            >
-                                Sign Up
-                            </Link>
-
+                            <div className="space-x-4">
+                                <Link
+                                    to="/login"
+                                    className="text-gray-600 hover:text-gray-800 font-medium"
+                                >
+                                    Login
+                                </Link>
+                                <Link
+                                    to="/signup"
+                                    className="text-gray-600 hover:text-gray-800 font-medium"
+                                >
+                                    Sign Up
+                                </Link>
+                            </div>
                         )}
+
                     </div>
                 </div>
             </div>
