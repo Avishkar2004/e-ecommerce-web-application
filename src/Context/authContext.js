@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((response) => {
-          setUser(response.data.user);
+          setUser(response.data.user); // Ensure user object is set properly
         })
         .catch((error) => {
           console.error("Error fetching user:", error);
@@ -34,6 +34,8 @@ export const AuthProvider = ({ children }) => {
       );
       Cookies.set("authToken", response.data.token);
       console.log("Token set:", Cookies.get("authToken")); // Log the token here
+
+      // Ensure user state is set with the correct user data
       setUser(response.data.user); // Update user after signup
     } catch (error) {
       console.error("Signup error:", error.response?.data || error.message);
@@ -49,11 +51,13 @@ export const AuthProvider = ({ children }) => {
       Cookies.set("authToken", response.data.token);
       setUser(response.data.username); // Update user state after login
     } catch (error) {
-      console.error("Login error:", error.response?.data?.message || error.message);
+      console.error(
+        "Login error:",
+        error.response?.data?.message || error.message
+      );
       throw error; // Rethrow error to be caught in handleSubmit
     }
   };
-  
 
   const logout = () => {
     Cookies.remove("authToken");

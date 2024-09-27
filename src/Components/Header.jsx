@@ -5,6 +5,7 @@ import { AuthContext } from "../Context/authContext"; // Adjust the path
 const Header = () => {
     const navigate = useNavigate()
     const { user, logout } = useContext(AuthContext);
+    console.log(user)
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [ellipsisDropdownOpen, setEllipsisDropdownOpen] = useState(false);
 

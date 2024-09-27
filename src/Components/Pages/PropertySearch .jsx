@@ -204,13 +204,13 @@ const PropertySearch = () => {
 
 
       </div>
-      <div class="flex flex-col items-center justify-center space-y-4 p-4">
-        <div class="flex items-center space-x-4">
-          <hr class="w-16 border-gray-300" />
-          <span class="text-gray-600 text-lg font-medium">Are you a Property Owner?</span>
-          <hr class="w-16 border-gray-300" />
+      <div className="flex flex-col items-center justify-center space-y-4 p-4">
+        <div className="flex items-center space-x-4">
+          <hr className="w-16 border-gray-300" />
+          <span className="text-gray-600 text-lg font-medium">Are you a Property Owner?</span>
+          <hr className="w-16 border-gray-300" />
         </div>
-        <button class="px-6 py-2 bg-[#009587] text-white font-semibold rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-400">
+        <button className="px-6 py-2 bg-[#009587] text-white font-semibold rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-400">
           Post Free Property Ad
         </button>
       </div>

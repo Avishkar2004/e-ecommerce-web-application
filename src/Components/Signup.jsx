@@ -30,9 +30,10 @@ const Signup = () => {
             setLoading(false); // Stop loading after success
             navigate('/'); // Use navigate instead of window reload
         } catch (err) {
-            console.error(err.response.data.message);
-            setLoading(false); // Stop loading after error
+            alert(err.response?.data?.message || 'An error occurred during signup.');
+            setLoading(false);
         }
+
     };
 
     return (
