@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
     if (token) {
       axios
         .get("http://localhost:5000/api/auth/me", {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${token}` }, // Added Authorization header
         })
         .then((response) => {
           setUser(response.data.user); // Ensure user object is set properly
@@ -33,10 +33,9 @@ export const AuthProvider = ({ children }) => {
         userData
       );
       Cookies.set("authToken", response.data.token);
-      console.log("Token set:", Cookies.get("authToken")); // Log the token here
 
-      // Ensure user state is set with the correct user data
-      setUser(response.data.user); // Update user after signup
+      // Set the user data after signup
+      setUser(response.data.user); // This should contain the username and email
     } catch (error) {
       console.error("Signup error:", error.response?.data || error.message);
     }
@@ -49,13 +48,15 @@ export const AuthProvider = ({ children }) => {
         credentials
       );
       Cookies.set("authToken", response.data.token);
-      setUser(response.data.username); // Update user state after login
+
+      // Set full user object here
+      setUser(response.data.user); // Set user object with both username and email
     } catch (error) {
       console.error(
         "Login error:",
         error.response?.data?.message || error.message
       );
-      throw error; // Rethrow error to be caught in handleSubmit
+      throw error;
     }
   };
 

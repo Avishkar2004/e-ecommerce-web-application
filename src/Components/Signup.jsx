@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-
+import Cookies from "js-cookie"
 const Signup = () => {
-    const navigate = useNavigate(); // Correctly using useNavigate
+    const navigate = useNavigate();
 
     // Form data and loading state
     const [formData, setFormData] = useState({
@@ -22,22 +22,22 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true); // Start loading
+        setLoading(true);
         try {
             const res = await axios.post('http://localhost:5000/api/auth/signup', formData);
             alert(res.data.message);
-            localStorage.setItem('token', res.data.token);
-            setLoading(false); // Stop loading after success
-            navigate('/'); // Use navigate instead of window reload
+            Cookies.set("authToken", res.data.token); // Set the token in cookies
+            setLoading(false);
+            window.location.reload(navigate('/')); // Redirect after successful signup
         } catch (err) {
             alert(err.response?.data?.message || 'An error occurred during signup.');
             setLoading(false);
         }
-
     };
 
+
     return (
-        <div className="flex items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url(https://source.unsplash.com/featured/?nature,water)' }}>
+        <div className="flex items-center justify-center min-h-screen bg-cover bg-center" >
             <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md">
                 <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Create an Account</h2>
                 <form onSubmit={handleSubmit}>

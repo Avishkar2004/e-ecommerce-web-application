@@ -5,7 +5,7 @@ import { AuthContext } from "../Context/authContext"; // Adjust the path
 const Header = () => {
     const navigate = useNavigate()
     const { user, logout } = useContext(AuthContext);
-    console.log(user)
+    console.log("user in header", user)
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [ellipsisDropdownOpen, setEllipsisDropdownOpen] = useState(false);
 
@@ -234,21 +234,15 @@ const Header = () => {
                             </div>
                         ) : (
                             <div className="space-x-4">
-                                <Link
-                                    to="/login"
-                                    className="text-gray-600 hover:text-gray-800 font-medium"
-                                >
-                                    Login
-                                </Link>
+
                                 <Link
                                     to="/signup"
-                                    className="text-gray-600 hover:text-gray-800 font-medium"
+                                    className="text-black bg-blue-600 hover:bg-blue-400 p-2 rounded-md hover:text-gray-900 font-medium"
                                 >
                                     Sign Up
                                 </Link>
                             </div>
                         )}
-
                     </div>
                 </div>
             </div>
