@@ -1,43 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import Cookies from "js-cookie"
+import Cookies from 'js-cookie';
+import debounce from 'lodash.debounce';
+
 const Signup = () => {
     const navigate = useNavigate();
 
-    // Form data and loading state
     const [formData, setFormData] = useState({
         username: '',
         email: '',
         password: ''
     });
-    const [loading, setLoading] = useState(false); // State to track if form is being submitted
+    const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false);
 
+    // Function to handle input changes and call validation with debounce
     const handleChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
+        debouncedValidate({ ...formData, [e.target.name]: e.target.value });
     };
+
+    // Function to validate username and email on the server
+    const validateField = async (data) => {
+        try {
+            const response = await axios.post('http://localhost:5000/api/auth/check-availability', data);
+            setErrors({ ...errors, [response.data.field]: response.data.message });
+        } catch (err) {
+            setErrors({ ...errors, [err.response.data.field]: err.response.data.message });
+        }
+    };
+
+    // Debounced version of validateField to minimize API calls
+    const debouncedValidate = useCallback(debounce(validateField, 500), []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+
         try {
             const res = await axios.post('http://localhost:5000/api/auth/signup', formData);
             alert(res.data.message);
-            Cookies.set("authToken", res.data.token); // Set the token in cookies
+            Cookies.set('authToken', res.data.token); // Set the token in cookies
             setLoading(false);
-            window.location.reload(navigate('/')); // Redirect after successful signup
+            navigate('/');
+            window.location.reload();
         } catch (err) {
             alert(err.response?.data?.message || 'An error occurred during signup.');
             setLoading(false);
         }
     };
 
-
     return (
-        <div className="flex items-center justify-center min-h-screen bg-cover bg-center" >
+        <div className="flex items-center justify-center min-h-screen bg-cover bg-center">
             <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md">
                 <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Create an Account</h2>
                 <form onSubmit={handleSubmit}>
@@ -48,9 +66,10 @@ const Signup = () => {
                             value={formData.username}
                             onChange={handleChange}
                             placeholder="Username"
-                            className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            disabled={loading} // Disable input when loading
+                            className={`p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.username ? 'border-red-500' : ''}`}
+                            disabled={loading}
                         />
+                        {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
                     </div>
                     <div className="mb-4">
                         <input
@@ -59,9 +78,10 @@ const Signup = () => {
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="Email"
-                            className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            disabled={loading} // Disable input when loading
+                            className={`p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500 ${errors.email ? 'border-red-500' : ''}`}
+                            disabled={loading}
                         />
+                        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
                     </div>
                     <div className="mb-6">
                         <input
@@ -71,13 +91,13 @@ const Signup = () => {
                             onChange={handleChange}
                             placeholder="Password"
                             className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            disabled={loading} // Disable input when loading
+                            disabled={loading}
                         />
                     </div>
                     <button
                         type="submit"
                         className={`w-full p-3 ${loading ? 'bg-gray-500' : 'bg-blue-600'} text-white rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                        disabled={loading} // Disable button when loading
+                        disabled={loading}
                     >
                         {loading ? (
                             <div className="flex justify-center items-center">
