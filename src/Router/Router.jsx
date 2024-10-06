@@ -15,6 +15,7 @@ import FindANewHome from '../Components/Pages/FindANewHome';
 import Available from '../Components/Pages/Available';
 import Services from '../Components/Pages/Services';
 import Footer from '../Components/Pages/Footer';
+import ForgotPassword from '../Components/Pages/ForgotPassword';
 
 const AppRouter = () => {
     return (
@@ -23,6 +24,7 @@ const AppRouter = () => {
             <Routes>
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login />} />
+                <Route path='/forgot-password' element={<ForgotPassword />} />
                 <Route path="/postaboutroom" element={<PostFlat />} />
                 {/* Additional routes can be added here */}
             </Routes>

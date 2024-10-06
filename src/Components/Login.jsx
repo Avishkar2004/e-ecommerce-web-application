@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/authContext'; // Import AuthContext
+import { Visibility, VisibilityOff } from '@mui/icons-material'; // Import the icons from Material UI
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const Login = () => {
     identifier: '',
     password: ''
   });
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -20,6 +22,10 @@ const Login = () => {
     });
   };
 
+  const handlePasswordToggle = () => {
+    setShowPassword(!showPassword); // Toggle password visibility
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -27,8 +33,8 @@ const Login = () => {
     try {
       await login(formData);
       alert('Login successful!');
-      window.location.reload(navigate('/')) //! this will not work as expected sometimes bcoz this is not a good practice
-    } catch (err) { 
+      window.location.reload(navigate('/')) // This might not work as expected
+    } catch (err) {
       console.error(err);
       if (err.response && err.response.data) {
         const errorMessage = err.response.data.message;
@@ -63,15 +69,23 @@ const Login = () => {
               className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-6 relative">
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'} // Toggle input type based on password visibility
               name="password"
               value={formData.password}
               onChange={handleChange}
               placeholder="Password"
               className="p-3 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+            {/* Eye icon for toggling password visibility */}
+            <button
+              type="button"
+              onClick={handlePasswordToggle}
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500"
+            >
+              {showPassword ? <VisibilityOff /> : <Visibility />} {/* Conditionally render the eye icons */}
+            </button>
           </div>
           <button
             type="submit"
@@ -81,9 +95,13 @@ const Login = () => {
             {loading ? 'Logging in...' : 'Log In'}
           </button>
         </form>
-        <p className="mt-6 text-center text-gray-600">
-          Don't have an account? <a href="/signup" className="text-blue-500 hover:underline">Sign up</a>
-        </p>
+        <div className='flex justify-between mt-4'>
+          <Link to='/forgot-password' className='text-blue-500 hover:underline'>Forgot Password ?</Link>
+          <p className='text-gray-600'>
+            Don't have an account ? <Link to='/signup' className='text-blue-500 hover:underline'>Sign Up</Link>
+          </p>
+        </div>
+
       </div>
     </div>
   );
