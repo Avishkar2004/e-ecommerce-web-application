@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom"
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -9,6 +10,8 @@ const ForgotPassword = () => {
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate()
 
     const handleOTPRequest = async (e) => {
         e.preventDefault();
@@ -34,19 +37,26 @@ const ForgotPassword = () => {
         setError('');
         setMessage('');
 
-        try {
-            // Send request to verify OTP and reset password
-            const response = await axios.post('http://localhost:5000/api/auth/reset-password', {
-                email,
-                otp,
-                newPassword
-            });
-            setMessage(response.data.message);
-        } catch (err) {
-            setError(err.response?.data?.message || 'Failed to reset password. Please try again.');
-        } finally {
-            setLoading(false);
-        }
+
+
+        setTimeout(async () => {
+            try {
+                // Send request to verify OTP and reset password
+                const response = await axios.post('http://localhost:5000/api/auth/reset-password', {
+                    email,
+                    otp,
+                    newPassword
+                });
+                setMessage(response.data.message);
+
+                navigate("/login")
+
+            } catch (err) {
+                setError(err.response?.data?.message || 'Failed to reset password. Please try again.');
+            } finally {
+                setLoading(false);
+            }
+        }, 2000);
     };
 
     return (
