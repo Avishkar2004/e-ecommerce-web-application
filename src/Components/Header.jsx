@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Context/authContext"; // Adjust the path
+import { AuthContext } from "../Context/authContext";
+import HeaderPhoto from "../Components/assets/Header/Header.png"
 
 const Header = () => {
     const navigate = useNavigate()
@@ -33,11 +34,12 @@ const Header = () => {
         <header className="bg-white shadow-md sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
-                    <div className="flex items-center">
-                        <Link to="/" className="text-2xl font-bold text-gray-800">
-                            ShopEase
+                    <div className="flex items-start space-x-36">
+                        <Link to="/" className="flex items-center space-x-3 hover:text-blue-600 transition-colors duration-300">
+                            <img src={HeaderPhoto} alt="Logo" className="w-36 h-13 object-contain" />
                         </Link>
                     </div>
+
                     <nav className="hidden md:flex items-center space-x-8">
                         <Link
                             to="/shop"
